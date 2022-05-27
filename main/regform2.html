@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />	
+	<meta name="description" content="Web development" />
+	<meta name="keywords"    content="Registration Form" />
+	<meta name="author"      content="put your name here" />
+	<!-- (1) -->
+	<!-- (2) -->
+	<!-- (3) -->
+	<!-- (4) -->
+	<title>Web Development Form Validation Demo</title>
+	<!-- Adding Fontawesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+	<link rel="stylesheet" href="./regform2_desktop.css">
+	<link rel="stylesheet" href="./modal.css">
+</head>
+<body>
+	<form id="regform" method="post"
+				action="http://mercury.ict.swin.edu.au/it000000/formtest.php">
+		<!-- (5) -->
+		<button type="button" id="sectionAPlus" style="display:none; " onclick="sectionAEffect('plus')"> <i class="fa-solid fa-plus"></i> Section A</button>
+		<button type="button" id="sectionAMinus"  onclick="sectionAEffect('minus')"> <i class="fa-solid fa-minus"></i> Section A</button>
+		
+		<fieldset id="accountInformation" style="margin-bottom: 30px;">
+			<legend>Account Information</legend>
+			<div class="textinput">
+				<label for="sid">User ID</label>
+				<input id="sid" type="text" name="id" />
+			</div>
+			<div class="textinput">
+				<label for="pwd1">Password</label>
+				<input id="pwd1" type="password" name="pwd1" />
+			</div>
+			<div class="textinput">
+				<label for="pwd2">Retype Password</label>
+				<input id="pwd2" type="password" name="pwd2" />
+			</div>
+		</fieldset>
+		<!-- (6) -->
+
+
+		<button type="button" id="sectionBPlus" style="display:none; " onclick="sectionBEffect('plus')"> <i class="fa-solid fa-plus"></i> Section B</button>
+		<button type="button" id="sectionBMinus"  onclick="sectionBEffect('minus')"> <i class="fa-solid fa-minus"></i> Section B</button>
+		
+		<fieldset id="userInformation">
+			<legend>User Information</legend>
+			<div class="textinput">
+				<label for="uname">Name</label>
+				<input id="uname" type="text" name="uname" />
+			</div>
+			<div class="radioinput">
+				<fieldset>
+					<legend>Gender</legend>
+					<input id="genm" type="radio" name="gender" value="M" />
+					<label for="genm">Male</label>
+					<input id="genf" type="radio" name="gender" value="F" />
+					<label for="genf">Female</label>
+				</fieldset>
+			</div>
+		</fieldset>
+		<div class="buttoninput">
+			<input type="submit" value="Test Register" />
+		</div>
+	</form>
+
+	<script>
+		// Account Information
+		const sectionAMinus = document.getElementById("sectionAMinus");
+		const sectionAPlus = document.getElementById("sectionAPlus");
+		const accountInformation = document.getElementById("accountInformation");
+		function sectionAEffect(params) {
+			if (params === "minus") {
+				sectionAPlus.style.display = 'block';
+				sectionAMinus.style.display = 'none';
+				accountInformation.style.display = 'none';
+			} else {
+				sectionAPlus.style.display = 'none';
+				sectionAMinus.style.display = 'block';
+				accountInformation.style.display = 'block';
+			}
+		}
+
+		// User Information
+		const sectionBMinus = document.getElementById("sectionBMinus");
+		const sectionBPlus = document.getElementById("sectionBPlus");
+		const userInformation = document.getElementById("userInformation");
+		function sectionBEffect(params) {
+			if (params === "minus") {
+				sectionBPlus.style.display = 'block';
+				sectionBMinus.style.display = 'none';
+				userInformation.style.display = 'none';
+			} else {
+				sectionBPlus.style.display = 'none';
+				sectionBMinus.style.display = 'block';
+				userInformation.style.display = 'block';
+			}
+		}
+	</script>
+
+	<script src="./jquery-1.9.1.min.js"></script>
+	<script src="./validation.js"></script>
+</body>
+</html>
